@@ -1,0 +1,10 @@
+/**
+ * 
+ */
+/**
+ * @author albin
+ *
+ */
+module Astella
+{
+}
