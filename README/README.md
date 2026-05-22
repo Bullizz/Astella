@@ -16,6 +16,9 @@ Instead of checking if player is within said circles, maybe instead perform A* f
 Chests will be placed randomly throughout the maze, 5 in each quadrant. Each chest will contain 2 items, one potion and one notebook. The notebooks will contain texts that gives the player advice or backstory, the potions will have different effects that aids the player but with diffuse names.
 #### Potions
 The potions will be actived through keys 1-9, their effect will last for **7 seconds**.
+See the [potion table](potion-table.md).
+#### Notebooks
+When the player presses the 0-key, a panel with the content of the collected notebooks will be displayed, see the [notebook table](notebook-table.md).
 
 ## Game startup
 Every time the game is launched, it will look for the folder **GPNFs**, in case no such folder exists, the player will not be able to choose the *continue* option in the start menu. When the player chooses the *New Game* option, the program will create this folder in the same direcotry as the game and auto-generate files.
