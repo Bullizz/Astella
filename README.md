@@ -30,3 +30,13 @@ The potions will be actived through keys 1-9, their effect will last for **7 sec
 | pot10 | bruh |
 
 ## Game startup
+Every time the game is launched, it will look for the folder **GPNFs**, in case no such folder exists, the player will not be able to choose the *continue* option in the start menu. When the player chooses the *New Game* option, the program will create this folder in the same direcotry as the game and auto-generate files.
+| File in **GPNFs** | Description |
+| ----- | ------ |
+| chest.txt | Contains the position<x, y> and the content<potion, notebook> of all chests placed in the maze |
+| player.txt | Contains the position<x, y> and the orientation<up, left, down, right> of the player |
+| monster.txt | Contains the position<x, y>, the orientation<up, left, down, right>, and the current path of the monster |
+| maze.txt. | Contains the matrix that constitutes the maze |
+| inventory.txt | Contains the current inventory of the player, which notebooks and which potion at respective key |
+
+The files will be written to when the in-game menu option *Save* is pressed.
