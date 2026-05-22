@@ -21,13 +21,7 @@ See the [potion table](potion-table.md).
 When the player presses the 0-key, a panel with the content of the collected notebooks will be displayed, see the [notebook table](notebook-table.md).
 
 ## Game startup
-Every time the game is launched, it will look for the folder **GPNFs**, in case no such folder exists, the player will not be able to choose the *continue* option in the start menu. When the player chooses the *New Game* option, the program will create this folder in the same direcotry as the game and auto-generate files.
-| File in **GPNFs** | Description |
-| ----- | ------ |
-| chest.txt | Contains the position<x, y> and the content<potion, notebook> of all chests placed in the maze |
-| player.txt | Contains the position<x, y> and the orientation<up, left, down, right> of the player |
-| monster.txt | Contains the position<x, y>, the orientation<up, left, down, right>, and the current path of the monster |
-| maze.txt. | Contains the matrix that constitutes the maze |
-| inventory.txt | Contains the current inventory of the player, which notebooks and which potion at respective key |
+Every time the game is launched, it will look for the folder **GPNFs**, in case no such folder exists, the player will not be able to choose the *continue* option in the start menu. When the player chooses the *New Game* option, the program will create this folder in the same direcotry as the game and auto-generate files. See the files in [GPNFs table](GPNFs-table)
+
 
 The files will be written to when the in-game menu option *Save* is pressed.
