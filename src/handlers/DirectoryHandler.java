@@ -8,6 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import main.Definitions;
+import player.Inventory;
 
 public class DirectoryHandler
 {
@@ -84,4 +85,17 @@ public class DirectoryHandler
 	public void writeToMonsterFile(){}
 	public void writeToMazeFile(){}
 	public void writeToInventoryFile(){}
+	
+	public void readFromChestFile(){}
+	public void readFromPlayerFile(){}
+	public void readFromMonsterFile(){}
+	public void readFromMazeFile(){}
+	public void readFromInventoryFile(){}
+
+	public Inventory loadInventory()
+	{
+		
+		
+		return null;
+	}
 }
