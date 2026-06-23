@@ -33,6 +33,7 @@ public class DirectoryHandler
 			return false;
 		}
 	}
+	
 	public void createFolder()
 	{
 		String directory = defs.directory + defs.foldername_GPNFs;
@@ -46,6 +47,7 @@ public class DirectoryHandler
 			e.printStackTrace();
 		}
 	}
+	
 	public void createFile(String filename)
 	{
 		filename = defs.directory + defs.foldername_GPNFs + filename;

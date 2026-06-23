@@ -6,14 +6,15 @@ public class Inventory
 {
 	Definitions defs;
 	
-	String[][] foundNotebooks,
-			   foundChests;
+	String[] notebooks,
+			 chests;
 	
 	public Inventory(Definitions defs)
 	{
 		this.defs = defs;
 		
-		
+		notebooks = null;
+		chests 	  = null;
 	}
 	
 	public void initInventory()
