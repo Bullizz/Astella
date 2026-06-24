@@ -6,6 +6,9 @@ import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
 
 import main.Definitions;
 import player.Inventory;
@@ -22,14 +25,17 @@ public class DirectoryHandler
 	public boolean checkGPNFsExistence()
 	{		
 		Path directory = Paths.get(defs.directory, defs.foldername_GPNFs);
-		
+		int foundFiles = 0;
 		try(DirectoryStream<Path> dirStream = Files.newDirectoryStream(directory))
 		{
 			for(Path GPNFsContent: dirStream)
+				foundFiles++;
+			if(foundFiles == defs.filenameArray.length)
 				return true;
 			return false;
 		} catch(IOException ioe)
 		{
+//			ioe.printStackTrace();
 			return false;
 		}
 	}
@@ -62,7 +68,7 @@ public class DirectoryHandler
 	}
 	
 	// Restore GPNFs
-	public void restoreFolder()
+	public void restoreGPNFs()
 	{
 		String directory = defs.directory + defs.foldername_GPNFs;
 		try
@@ -85,7 +91,7 @@ public class DirectoryHandler
 	public void writeToChestFile(){}
 	public void writeToPlayerFile(){}
 	public void writeToMonsterFile(){}
-	public void writeToMazeFile(){}
+	public void writeToMazeFile(int[][] maze){}
 	public void writeToInventoryFile(){}
 	
 	public void readFromChestFile(){}

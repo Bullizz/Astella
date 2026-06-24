@@ -2,10 +2,10 @@ package main;
 
 public class Definitions
 {
-	int[][] maze;
+	public int[][] maze;
 	
-	int WIDTH;
-	int HEIGHT;
+	public int WIDTH;
+	public int HEIGHT;
 	public int DIM = 25;
 	
 	public String directory;
@@ -24,10 +24,10 @@ public class Definitions
 									 filename_maze,
 									 filename_inventory};
 	
-	public int WALL_UP    = 8;
-	public int WALL_LEFT  = 4;
-	public int WALL_DOWN  = 2;
-	public int WALL_RIGHT = 1;
+	public static int WALL_UP    = 8;
+	public static int WALL_LEFT  = 4;
+	public static int WALL_DOWN  = 2;
+	public static int WALL_RIGHT = 1;
 	
 	public void setDirPath(String directory)
 	{
@@ -39,13 +39,13 @@ public class Definitions
 		this.maze = maze;
 	}
 	
-	public void setWIDTH(int wIDTH)
+	public void setWIDTH(int WIDTH)
 	{
-		WIDTH = wIDTH;
+		this.WIDTH = WIDTH;
 	}
 	
-	public void setHEIGHT(int hEIGHT)
+	public void setHEIGHT(int HEIGHT)
 	{
-		HEIGHT = hEIGHT;
+		this.HEIGHT = HEIGHT;
 	}
 }

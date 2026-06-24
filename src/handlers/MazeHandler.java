@@ -44,6 +44,11 @@ public class MazeHandler
 		
 		int visitedCells = 1;
 		
+		int wallUp    = Definitions.WALL_UP;
+		int wallLeft  = Definitions.WALL_LEFT;
+		int wallDown  = Definitions.WALL_DOWN;
+		int wallRight = Definitions.WALL_RIGHT;
+		
 		while(visitedCells < (dim * dim))
 		{
 			int[][] neighboursPos = getNeighboursPos(x, y);
@@ -64,11 +69,6 @@ public class MazeHandler
 				nextPos = neighboursPos[nextPosIndex];
 			}
 			appendStepArray(nextPos);
-			
-			int wallUp    = defs.WALL_UP;
-			int wallLeft  = defs.WALL_LEFT;
-			int wallDown  = defs.WALL_DOWN;
-			int wallRight = defs.WALL_RIGHT;
 			
 			// Remove above wall
 			if(nextPos[1] < y)
@@ -100,12 +100,17 @@ public class MazeHandler
 			y = nextPos[1];
 			visitedCellsMaze[y][x] = true;
 			
-			visitedCells = countVisitedCells();
+			// visitedCells = countVisitedCells();
+			visitedCells++;
 		}
+		DirectoryHandler directoryHandler = new DirectoryHandler(defs);
 		
+		directoryHandler.writeToMazeFile(maze);
 		defs.setMaze(maze);
+		
+		
 	}
-	
+
 	private int countVisitedCells()
 	{
 		int counter = 0;
@@ -180,12 +185,13 @@ public class MazeHandler
 
 	private int[][] initMaze()
 	{
+		int ALL_WALLS = 15;
 		int[][] maze = new int[dim][dim];
 		// Assign cells
 		for(int i = 0; i < dim; i++)
 		{
 			for(int j = 0; j < dim; j++)
-				maze[i][j] = 15;
+				maze[i][j] = ALL_WALLS;
 		}
 		
 		return maze;

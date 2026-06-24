@@ -7,7 +7,6 @@ import java.awt.Graphics2D;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -24,6 +23,8 @@ public class ContBtn extends JButton
 	Definitions defs;
 
 	BufferedImage image, chestClosed, chestOpened;
+	String  chestClosedPath = "/res/images/start_menu/cont-chest-closed-transp.png",
+			chestOpenedPath = "/res/images/start_menu/cont-chest-open-transp.png";
 	
 	 // (width, height) = (384, 216)
 	
@@ -31,8 +32,21 @@ public class ContBtn extends JButton
 	{
 		super();
 		setText("Continue");
-		setBackground(Color.RED);
-		setForeground(Color.BLACK);
+//		setBackground(new Color(255, 255, 255, 1));
+//		setForeground(Color.BLACK);
+		Border border = BorderFactory.createMatteBorder(0, 0, 0, 0, Color.WHITE);
+		setBorder(border);
+		
+		try
+		{
+			chestClosed = ImageIO.read(getClass().getResourceAsStream(chestClosedPath));
+			chestOpened = ImageIO.read(getClass().getResourceAsStream(chestOpenedPath));
+			
+			image = chestClosed;
+		} catch(IOException e)
+		{
+			e.printStackTrace();
+		}
 		if(contAvailable)
 		{			
 			addMouseListener(new MouseAdapter()
@@ -46,19 +60,6 @@ public class ContBtn extends JButton
 					image = chestClosed;				
 				}
 			});
-		}
-		Border border = BorderFactory.createMatteBorder(0, 0, 0, 0, Color.WHITE);
-		setBorder(border);
-		
-		try
-		{
-			chestClosed = ImageIO.read(new File("C:/Users/albin/eclipse-workspace/Astella/src/gui/start_menu/chest-closed2.png"));
-			chestOpened = ImageIO.read(new File("C:/Users/albin/eclipse-workspace/Astella/src/gui/start_menu/chest-open2-txt.png"));
-			
-			image = chestClosed;
-		} catch(IOException e)
-		{
-			e.printStackTrace();
 		}
 	}
 	

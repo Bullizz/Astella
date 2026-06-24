@@ -6,6 +6,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import gui.start_menu.StartMenuPanel;
 import main.Definitions;
@@ -43,5 +44,10 @@ public class Frame extends JFrame
 		StartMenuPanel startMenuPanel = new StartMenuPanel(defs, WIDTH, HEIGHT, this, contAvailable);
 		add(startMenuPanel);
 		setVisible(true);
+	}
+
+	public void clearFrame(JPanel child)
+	{
+		getContentPane().remove(child);
 	}
 }

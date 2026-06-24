@@ -15,7 +15,8 @@ public class Main
 		// Check if GPNFs exists
 		DirectoryHandler directoryHandler = new DirectoryHandler(defs);
 		boolean GPNFsExists = directoryHandler.checkGPNFsExistence();
-		
+		for(int i = 0; i < 16; i++)
+			System.out.println(i / 4);
 		boolean contAvailable = GPNFsExists;
 		
 		// Create folder and fill with empty files if non-existent
