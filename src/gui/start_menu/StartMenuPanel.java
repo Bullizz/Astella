@@ -136,7 +136,7 @@ public class StartMenuPanel extends JPanel
 		new MazeHandler(defs).genMaze();
 		
 		// Gen chests
-		Chest[] chestArray = new Chest(0, 0, 0, 0, 0).getChestArray(defs);
+		Chest[] chestArray = new Chest(0, 0, 0, "", "").getChestArray(defs);
 		
 		int dim = defs.DIM;
 		
