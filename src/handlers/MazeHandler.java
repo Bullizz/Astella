@@ -105,6 +105,7 @@ public class MazeHandler
 		}
 		DirectoryHandler directoryHandler = new DirectoryHandler(defs);
 		
+		directoryHandler.createFile(defs.filename_maze);
 		directoryHandler.writeToMazeFile(maze);
 		defs.setMaze(maze);
 		

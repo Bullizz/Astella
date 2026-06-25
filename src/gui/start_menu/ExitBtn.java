@@ -18,12 +18,13 @@ import javax.swing.border.Border;
 public class ExitBtn extends JButton
 {
 	BufferedImage image, chestClosed, chestOpened;
+	String chestClosedPath = "/res/images/start_menu/cont-chest-closed-transp.png",
+		   chestOpenedPath = "/res/images/start_menu/cont-chest-open-transp.png";
 	public ExitBtn()
 	{
 		super();
-		setText("New Game");
-		setBackground(Color.RED);
-		setForeground(Color.BLACK);
+		setOpaque(false);
+		setBorderPainted(false);
 		addMouseListener(new MouseAdapter()
 		{
 			public void mouseEntered(MouseEvent enter)
@@ -40,8 +41,8 @@ public class ExitBtn extends JButton
 		
 		try
 		{
-			chestClosed = ImageIO.read(new File("C:/Users/albin/eclipse-workspace/Astella/src/gui/start_menu/chest-closed2.png"));
-			chestOpened = ImageIO.read(new File("C:/Users/albin/eclipse-workspace/Astella/src/gui/start_menu/chest-open2-txt.png"));
+			chestClosed = ImageIO.read(getClass().getResourceAsStream(chestClosedPath));
+			chestOpened = ImageIO.read(getClass().getResourceAsStream(chestOpenedPath));
 			
 			image = chestClosed;
 		} catch(IOException e)

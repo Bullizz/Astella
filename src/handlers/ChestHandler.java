@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 import main.Definitions;
 
-public class Chest
+public class ChestHandler
 {
 	int x;
 	int y;
@@ -12,7 +12,7 @@ public class Chest
 	String potion;
 	String notebook;
 	
-	public Chest(int x, int y, int wallSrc, String potion, String notebook)
+	public ChestHandler(int x, int y, int wallSrc, String potion, String notebook)
 	{
 //		System.out.println("bruh1");
 		if(wallSrc == 0)
@@ -25,11 +25,11 @@ public class Chest
 		this.notebook = notebook;
 	}
 	
-	public Chest[] getChestArray(Definitions defs)
+	public void getChestArray(Definitions defs)
 	{
 		int chestLim = 16;
 		int[][] maze = defs.maze;
-		Chest[] chestArray = new Chest[chestLim];
+		ChestHandler[] chestArray = new ChestHandler[chestLim];
 
 		LinkedList<Integer> chestPos = new LinkedList<>();
 		
@@ -92,11 +92,15 @@ public class Chest
 				notebooks[notebookIndex] = null;
 			}
 			
-			chestArray[index] = new Chest(x, y, wallSrc, potion, notebook);
+			chestArray[index] = new ChestHandler(x, y, wallSrc, potion, notebook);
 			index++;
 		}
 		
-		return chestArray;
+		DirectoryHandler directoryHandler = new DirectoryHandler(defs);
+		
+		directoryHandler.createFile(defs.filename_chest);
+		directoryHandler.writeToChestFile(chestArray);
+		defs.setChests(chestArray);
 	}
 	
 	private boolean posOccupied(LinkedList<Integer> chestPos, int dim, int x, int y)

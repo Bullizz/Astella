@@ -22,6 +22,12 @@ public class DirectoryHandler
 		this.defs = defs;
 	}
 	
+	public boolean checkFileExistence(String filename)
+	{
+		
+		return false;
+	}
+	
 	public boolean checkGPNFsExistence()
 	{		
 		Path directory = Paths.get(defs.directory, defs.foldername_GPNFs);
@@ -30,6 +36,7 @@ public class DirectoryHandler
 		{
 			for(Path GPNFsContent: dirStream)
 				foundFiles++;
+			
 			if(foundFiles == defs.filenameArray.length)
 				return true;
 			return false;
@@ -84,11 +91,9 @@ public class DirectoryHandler
 		}
 		
 		createFolder();
-		for(String filename: defs.filenameArray)
-			createFile(filename);
 	}
 	
-	public void writeToChestFile(){}
+	public void writeToChestFile(ChestHandler[] chestArray){}
 	public void writeToPlayerFile(){}
 	public void writeToMonsterFile(){}
 	public void writeToMazeFile(int[][] maze){}

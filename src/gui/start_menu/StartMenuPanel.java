@@ -1,3 +1,4 @@
+
 package gui.start_menu;
 
 import java.awt.Color;
@@ -15,7 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import gui.Frame;
-import handlers.Chest;
+import handlers.ChestHandler;
 import handlers.DirectoryHandler;
 import handlers.MazeHandler;
 import main.Definitions;
@@ -30,7 +31,6 @@ public class StartMenuPanel extends JPanel
 	
 	final static GridLayout grid1 = new GridLayout(1, 3);
 	final static GridLayout grid2 = new GridLayout(5, 1);
-	final static Color transparent = new Color(255, 255, 255, 1);
 	
 	int WIDTH, HEIGHT;
 	boolean contAvailable;
@@ -59,12 +59,13 @@ public class StartMenuPanel extends JPanel
 			e.printStackTrace();
 		}
 		setLayout(grid1);
+		setOpaque(false);
 		
 		addFillerPanel(this);
 //		addFillerPanel(this);
 		JPanel menuBtnHolder = new JPanel();
 		menuBtnHolder.setLayout(grid2);
-		menuBtnHolder.setBackground(transparent);
+		menuBtnHolder.setOpaque(false);
 		add(menuBtnHolder);
 			addFillerPanel(menuBtnHolder);
 			
@@ -80,9 +81,8 @@ public class StartMenuPanel extends JPanel
 			exitBtn.setFocusable(false);
 			menuBtnHolder.add(exitBtn);
 			
-			JPanel info = new JPanel();
-			info.setBackground(getRngColor());
-			menuBtnHolder.add(info);
+			InfoPanel infoPanel = new InfoPanel();
+			menuBtnHolder.add(infoPanel);
 		addFillerPanel(this);
 //		addFillerPanel(this);
 		
@@ -123,20 +123,13 @@ public class StartMenuPanel extends JPanel
 		 */
 		directoryHandler = new DirectoryHandler(defs);
 		parent.getContentPane().remove(this);
-		if(!contAvailable)
-		{
-			directoryHandler.createFolder();
-			for(String file: defs.filenameArray)
-				directoryHandler.createFile(file);
-		}
-		else
-			directoryHandler.restoreGPNFs();
+		directoryHandler.restoreGPNFs();
 		
 		// Gen. maze
 		new MazeHandler(defs).genMaze();
 		
-		// Gen chests
-		Chest[] chestArray = new Chest(0, 0, 0, "", "").getChestArray(defs);
+		// Gen. chests
+		new ChestHandler(0, 0, 0, "", "").getChestArray(defs);
 		
 		int dim = defs.DIM;
 		
@@ -189,16 +182,14 @@ public class StartMenuPanel extends JPanel
 	private void addFillerPanel(JPanel parent)
 	{
 		JPanel fillerPanel = new JPanel();
-		fillerPanel.setBackground(transparent);
+		fillerPanel.setOpaque(false);
 		parent.add(fillerPanel);
 	}
 
 	@Override
 	public void paintComponent(Graphics g)
 	{
-		super.paintComponent(g);
-		Graphics2D g_2d = (Graphics2D) g;
-		
+		super.paintComponent(g);		
 		g.drawImage(backgroundImg, 0, 0, WIDTH, HEIGHT, this);
 	}
 }

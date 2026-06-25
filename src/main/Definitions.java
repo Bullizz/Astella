@@ -1,8 +1,13 @@
 package main;
 
+import handlers.ChestHandler;
+import player.Inventory;
+
 public class Definitions
 {
 	public int[][] maze;
+	public ChestHandler[] chests;
+	public Inventory[] inventory;
 	
 	public int WIDTH;
 	public int HEIGHT;
@@ -69,6 +74,11 @@ public class Definitions
 				  		   		 "notebook-7",
 				  		   		 "notebook-8",
 						  		 "notebook-9"};
+	
+	public void setChests(ChestHandler[] chests)
+	{
+		this.chests = chests;
+	}
 	
 	public void setDirPath(String directory)
 	{
